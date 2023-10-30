@@ -26,6 +26,7 @@ export default async function handler(
         return {
           allowedContentTypes: ["application/pdf"],
           maximumSizeInBytes: 30 * 1024 * 1024, // 30 MB
+          validUntil: Date.now() + 60 * 10 * 1000, // now + 10 minutes
           metadata: JSON.stringify({
             // optional, sent to your server on upload completion
             userId: (session.user as CustomUser).id,
